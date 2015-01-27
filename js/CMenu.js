@@ -8,16 +8,28 @@ function CMenu(){
     this._init = function(){
         _oBg = new createjs.Bitmap(s_oSpriteLibrary.getSprite('bg_menu'));
         s_oStage.addChild(_oBg);
-        var oSprite = s_oSpriteLibrary.getSprite('but_bg');
-        _oButPlay = new CTextButton((CANVAS_WIDTH/2),CANVAS_HEIGHT -100,oSprite,TEXT_PLAY,"Chewy","#ffffff",40);
+        var oSprite = s_oSpriteLibrary.getSprite('menu_start');
+
+        var oData = {   
+                        images: [oSprite], 
+                        frames: {width: 96, height: 96, regX: 48, regY: 48}, 
+                        framerate: 10,
+                        animations: {move: {frames: [0,1,2,3,4,5,6,7,7,7,7,7,7]}}
+                    };
+        
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        
+        _oSprite = new createjs.Sprite(oSpriteSheet, "move");
+
+        _oButPlay = new CGfxButton((CANVAS_WIDTH/2+25),CANVAS_HEIGHT/2+25, _oSprite, true);
         _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
 
         var oSpriteMoreGames = s_oSpriteLibrary.getSprite('but_more_games');
-        _ButMoreGames = new CGfxButton((oSpriteMoreGames.width/2) + 5,(oSpriteMoreGames.height/2) + 5,oSpriteMoreGames, true);
+        _ButMoreGames = new CGfxButton((oSpriteMoreGames.width/2) + 5,(oSpriteMoreGames.height/2) + 5,oSpriteMoreGames);
 
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             var oSprite = s_oSpriteLibrary.getSprite('setting_icon');
-            _oAudioToggle = new CGfxButton(CANVAS_WIDTH - (oSprite.width/2) - 10,(oSprite.height/2) + 10,oSprite, true);
+            _oAudioToggle = new CGfxButton(CANVAS_WIDTH - (oSprite.width/2) - 10,(oSprite.height/2) + 10,oSprite);
             //_oAudioToggle.addEventListener(ON_MOUSE_UP, this._onAudioToggle, this);
 
             s_oSoundtrack = createjs.Sound.play("soundtrack",{ loop:100});

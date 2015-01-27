@@ -87,6 +87,14 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("but_pause","./sprites/but_pause.png");
         s_oSpriteLibrary.addSprite("but_more_games","./sprites/but_more_games.png");
         s_oSpriteLibrary.addSprite("bg_menu","./sprites/bg_menu.jpg");
+        s_oSpriteLibrary.addSprite("menu_cook","./sprites/menu_cook.png");
+        s_oSpriteLibrary.addSprite("menu_car","./sprites/menu_car.png");
+        s_oSpriteLibrary.addSprite("menu_home","./sprites/menu_home.png");
+        s_oSpriteLibrary.addSprite("menu_start","./sprites/menu_start.png");
+        s_oSpriteLibrary.addSprite("menu_login_fb","./sprites/menu_login_fb.png");
+        s_oSpriteLibrary.addSprite("menu_login_gp","./sprites/menu_login_gp.png");
+        s_oSpriteLibrary.addSprite("menu_login_vk","./sprites/menu_login_vk.png");
+
         s_oSpriteLibrary.addSprite("setting_icon","./sprites/setting_icon.png");
         s_oSpriteLibrary.addSprite("hero","./sprites/hero.png");
         s_oSpriteLibrary.addSprite("heroBack","./sprites/heroBack.png");

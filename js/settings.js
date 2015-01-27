@@ -1,4 +1,4 @@
-var CANVAS_WIDTH = 1024;
+var CANVAS_WIDTH = 1368;
 var CANVAS_HEIGHT = 768;
 
 var FPS_TIME      = 1000/24;

@@ -1,23 +1,36 @@
-function CGfxButton(iXPos,iYPos,oSprite){
+function CGfxButton(iXPos,iYPos,oSprite, animation){
     
     var _aCbCompleted;
     var _aCbOwner;
     var _aParams = [];
     var _oButton;
     
-    this._init =function(iXPos,iYPos,oSprite){
+    this._init = function(iXPos,iYPos,oSprite, animation){
         
         _aCbCompleted=new Array();
         _aCbOwner =new Array();
         
-        _oButton = new createjs.Bitmap( oSprite);
-        _oButton.x = iXPos;
-        _oButton.y = iYPos; 
-                                   
-        _oButton.regX = oSprite.width/2;
-        _oButton.regY = oSprite.height/2;
-       
+        if (!animation){
+            _oButton = new createjs.Bitmap( oSprite);
+
+            _oButton.x = iXPos;
+            _oButton.y = iYPos; 
+                                       
+            _oButton.regX = oSprite.width/2;
+            _oButton.regY = oSprite.height/2;            
+        }
+        else {
+            _oButton = oSprite;
+            _oButton.x = iXPos;
+            _oButton.y = iYPos; 
+
+            _oButton.play();
+        }
+
+
         s_oStage.addChild(_oButton);
+
+
         
         
         this._initListener();
@@ -98,7 +111,7 @@ function CGfxButton(iXPos,iYPos,oSprite){
         return _oButton.y;
     };
 
-    this._init(iXPos,iYPos,oSprite);
+    this._init(iXPos, iYPos, oSprite, animation);
     
     return this;
 }
