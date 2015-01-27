@@ -21,15 +21,15 @@ function CMenu(){
         
         _oSprite = new createjs.Sprite(oSpriteSheet, "move");
 
-        _oButPlay = new CGfxButton((CANVAS_WIDTH/2+25),CANVAS_HEIGHT/2+25, _oSprite, true);
+        _oButPlay = new CGfxButton((CANVAS_WIDTH/2+25),CANVAS_HEIGHT/2+25, _oSprite);
         _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
 
         var oSpriteMoreGames = s_oSpriteLibrary.getSprite('but_more_games');
-        _ButMoreGames = new CGfxButton((oSpriteMoreGames.width/2) + 5,(oSpriteMoreGames.height/2) + 5,oSpriteMoreGames);
+        _ButMoreGames = new CGfxButton((oSpriteMoreGames.width/2) + 5,(oSpriteMoreGames.height/2) + 5,oSpriteMoreGames, true);
 
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             var oSprite = s_oSpriteLibrary.getSprite('setting_icon');
-            _oAudioToggle = new CGfxButton(CANVAS_WIDTH - (oSprite.width/2) - 10,(oSprite.height/2) + 10,oSprite);
+            _oAudioToggle = new CGfxButton(CANVAS_WIDTH - (oSprite.width/2) - 10,(oSprite.height/2) + 10,oSprite, true);
             //_oAudioToggle.addEventListener(ON_MOUSE_UP, this._onAudioToggle, this);
 
             s_oSoundtrack = createjs.Sound.play("soundtrack",{ loop:100});

@@ -1,16 +1,16 @@
-function CGfxButton(iXPos,iYPos,oSprite, animation){
+function CGfxButton(iXPos,iYPos,oSprite, bitmap){
     
     var _aCbCompleted;
     var _aCbOwner;
     var _aParams = [];
     var _oButton;
     
-    this._init = function(iXPos,iYPos,oSprite, animation){
+    this._init = function(iXPos,iYPos,oSprite, bitmap){
         
         _aCbCompleted=new Array();
         _aCbOwner =new Array();
         
-        if (!animation){
+        if (bitmap){
             _oButton = new createjs.Bitmap( oSprite);
 
             _oButton.x = iXPos;
@@ -111,7 +111,7 @@ function CGfxButton(iXPos,iYPos,oSprite, animation){
         return _oButton.y;
     };
 
-    this._init(iXPos, iYPos, oSprite, animation);
+    this._init(iXPos, iYPos, oSprite, bitmap);
     
     return this;
 }
