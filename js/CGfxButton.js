@@ -39,6 +39,9 @@ function CGfxButton(iXPos,iYPos,oSprite, bitmap){
     this.unload = function(){
        _oButton.off("mousedown", this.buttonDown);
        _oButton.off("pressup" , this.buttonRelease); 
+
+       _oButton.off("rollover" , this.buttonRollover); 
+       _oButton.off("rollout" , this.buttonRollout); 
        
        s_oStage.removeChild(_oButton);
     };
@@ -49,7 +52,10 @@ function CGfxButton(iXPos,iYPos,oSprite, bitmap){
     
     this._initListener = function(){
        _oButton.on("mousedown", this.buttonDown);
-       _oButton.on("pressup" , this.buttonRelease);      
+       _oButton.on("pressup" , this.buttonRelease); 
+
+       _oButton.on("rollover" , this.buttonRollover); 
+       _oButton.on("rollout" , this.buttonRollout);             
     };
     
     this.addEventListener = function( iEvent,cbCompleted, cbOwner ){
@@ -85,6 +91,16 @@ function CGfxButton(iXPos,iYPos,oSprite, bitmap){
        }
     };
     
+    this.buttonRollover = function(){
+        _oButton.scaleX = 1.05;
+        _oButton.scaleY = 1.05;        
+    }
+
+    this.buttonRollout = function(){
+        _oButton.scaleX = 1;
+        _oButton.scaleY = 1;        
+    }    
+
     this.setPosition = function(iXPos,iYPos){
          _oButton.x = iXPos;
          _oButton.y = iYPos;
