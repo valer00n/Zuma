@@ -19,7 +19,7 @@ function CMenu(){
                     };
         var oSpritePlaySheet = new createjs.SpriteSheet(oPlayData);
         var _oSpritePlay = new createjs.Sprite(oSpritePlaySheet, "move");
-        _oButPlay = new CGfxButton((CANVAS_WIDTH/2+25),CANVAS_HEIGHT/2+25, _oSpritePlay);
+        _oButPlay = new CGfxButton((CANVAS_WIDTH/2+31),CANVAS_HEIGHT/2+26, _oSpritePlay);
         _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
         //play button end
 
