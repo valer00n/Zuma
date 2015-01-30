@@ -68,7 +68,7 @@ function CMenu(){
         
         s_oStage.addChild(_oFade);
         
-        createjs.Tween.get(_oFade).to({alpha:0}, 1000).call(function(){_oFade.visible = false;});  
+        createjs.Tween.get(_oFade).to({alpha:0}, 1000).call(function(){_oFade.visible = false;});
     };
     
     this.unload = function(){

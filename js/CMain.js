@@ -104,6 +104,12 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("extra_score","./sprites/extra_score.png");
         s_oSpriteLibrary.addSprite("end_path","./sprites/end_path.png");
         s_oSpriteLibrary.addSprite("prop","./sprites/prop.png");
+
+        s_oSpriteLibrary.addSprite("roadmap_start_0","./sprites/roadmap_start_center.png");
+        s_oSpriteLibrary.addSprite("roadmap_start_2","./sprites/roadmap_start_br.png");
+        s_oSpriteLibrary.addSprite("roadmap_start_4","./sprites/roadmap_start_bl.png");
+        s_oSpriteLibrary.addSprite("roadmap_start_1","./sprites/roadmap_start_tr.png");
+        s_oSpriteLibrary.addSprite("roadmap_start_3","./sprites/roadmap_start_tl.png");
         
         for(var i=0;i<BALL_COLORS;i++){
             s_oSpriteLibrary.addSprite("ball_"+i,"./sprites/ball_"+i+".png");
