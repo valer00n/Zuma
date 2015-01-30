@@ -135,11 +135,19 @@ function CRoadMap(oData){
     this.makeDecor = function(_oDecorAttach){
       var _oDecor;
       var _oDecorSprite;
+      var _dDecorTargets = [
+        {x: 768, y: 0},
+        {x: 244, y: 740},
+        {x: 900, y: 644},
+        {x: 1108, y: 486},
+        {x: 182, y: 264}
+      ];
       for (var i = 0; i < 5; i++) {
         _oDecorSprite = s_oSpriteLibrary.getSprite('roadmap_decor_' + (i + 1));
         _oDecor = new createjs.Bitmap(_oDecorSprite);
         _oDecor.x = Math.floor(Math.random() * (CANVAS_WIDTH - _oDecorSprite.width));
         _oDecor.y = Math.floor(Math.random() * (CANVAS_HEIGHT - _oDecorSprite.height));
+        createjs.Tween.get(_oDecor).to(_dDecorTargets[i], 6000).call(function(){_oCurtians[4].visible = false;});
         _oDecorAttach.addChild(_oDecor);
       };
     };
