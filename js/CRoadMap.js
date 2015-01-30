@@ -7,8 +7,7 @@ function CRoadMap(oData){
     var _oCandysAttach;    
     var _bUpdate;
 
-    var _roadPoints = [];
-
+    var _oCandy = [];
     var _currPoint = 0;
 
     var _roadPointsDefaults = [
@@ -97,7 +96,7 @@ function CRoadMap(oData){
 
       _oCurveAttach.addChild(_oPath);
 
-      var _oCandySprite, _oCandy, _oCandyIndex;
+      var _oCandySprite, _oCandyIndex;
 
       for (var i = 0; i < LEVELS_ON_MAP; i++){
         if(i < _currPoint) {
@@ -108,36 +107,41 @@ function CRoadMap(oData){
           _oCandyIndex = LEVELS_CANDY_CLOSE;
         }
         _oCandySprite = s_oSpriteLibrary.getSprite('roadmap_candy_' + _oCandyIndex);
-        _oCandy = new CGfxButton(_roadPointsDefaults[_idPath][i].x + _x_fix, _roadPointsDefaults[_idPath][i].y, _oCandySprite, true);
+        _oCandy[i] = new CGfxButton(_roadPointsDefaults[_idPath][i].x + _x_fix, _roadPointsDefaults[_idPath][i].y, _oCandySprite, true);
 
         switch (_oCandyIndex) {
           case LEVELS_CANDY_CLOSE: 
-
+            _oCandy[i].addEventListener(ON_MOUSE_UP, function(){
+              alert('Access denied!'); //TODO: make popup or nothing
+            }, this);
           break;
 
           case LEVELS_CANDY_DONE: 
           case LEVELS_CANDY_INPROGRESS: 
-            
+            _oCandy[i].addEventListener(ON_MOUSE_UP, this.doPlay, this);
           break;               
         }
 
       }
-
-      
-
     };
 
     this.readState = function(){
       _currPoint = 2;
     };
+
+    this.doPlay = function(){
+        this.unload();
+        s_oMain.gotoGame();      
+    };
     
     this.unload = function(){
         _bUpdate = false;
-        clearInterval(_iIntervalID);
         createjs.Sound.stop();
 
-        _oInterface.unload();
-        _oHero.unload();
+        for (var i = 0; i < _oCandy.length; i++) {
+          _oCandy[i].unload();
+        };
+
         s_oStage.removeAllChildren();
     };
   
