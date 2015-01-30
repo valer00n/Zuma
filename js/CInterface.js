@@ -22,7 +22,7 @@ function CInterface(){
         var oSprite = s_oSpriteLibrary.getSprite('but_pause');
         oSprite.scaleX = oSprite.scaleY = 0.5;
         _oButExit = new CGfxButton(CANVAS_WIDTH - (oSprite.width/2) - 10,(oSprite.height/2) + 10,oSprite,true);
-        //_oButExit.addEventListener(ON_MOUSE_UP, this._onExit, this);
+        _oButExit.addEventListener(ON_MOUSE_UP, this._onPause, this);
 
         var oSpriteMoreGames = s_oSpriteLibrary.getSprite('but_more_games');
         _ButMoreGames = new CGfxButton((oSpriteMoreGames.width/2) + 5,(oSpriteMoreGames.height/2) + 5,oSpriteMoreGames, true);
@@ -72,6 +72,10 @@ function CInterface(){
     this._onExit = function(){
         s_oGame.onExit();  
     };
+
+    this._onPause = function(){
+        
+    };    
     
     this._onAudioToggle = function(){
         createjs.Sound.setMute(!s_bAudioActive);

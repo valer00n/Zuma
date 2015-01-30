@@ -1,13 +1,17 @@
 var CANVAS_WIDTH = 1368;
 var CANVAS_HEIGHT = 768;
 
+var GAME_WIDTH = 1024;
+var GAME_HEIGHT = 768;
+
 var FPS_TIME      = 1000/24;
 var DISABLE_SOUND_MOBILE = true;
 
-var STATE_LOADING = 0;
-var STATE_MENU    = 1;
-var STATE_HELP    = 1;
-var STATE_GAME    = 3;
+var STATE_LOADING    = 0;
+var STATE_MENU       = 1;
+var STATE_HELP       = 1;
+var STATE_GAME       = 3;
+var STATE_ROADMAP    = 4;
 
 var ON_MOUSE_DOWN = 0;
 var ON_MOUSE_UP   = 1;
@@ -21,6 +25,11 @@ var STATE_GAME_BALL_MOVE     = 1;
 var STATE_GAME_ROLL_OUT      = 2;
 var STATE_GAME_SHOOTING      = 3;
 var STATE_GAME_ATTRACT_BALLS = 4;
+
+var LEVELS_ON_MAP = 15;
+var LEVELS_CANDY_DONE = 1;
+var LEVELS_CANDY_INPROGRESS = 3;
+var LEVELS_CANDY_CLOSE = 2;
 
 var STEP_LENGTH = 2;
 var BALL_COLORS = 6;

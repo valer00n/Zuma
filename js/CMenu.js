@@ -89,7 +89,7 @@ function CMenu(){
     
     this._onButPlayRelease = function(){
         this.unload();
-        s_oMain.gotoGame();
+        s_oMain.gotoRoadMap();
     };
 
     this._onAudioToggle = function(){

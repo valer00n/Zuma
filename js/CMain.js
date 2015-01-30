@@ -113,6 +113,19 @@ function CMain(oData){
 			s_oSpriteLibrary.addSprite("bg_game_"+(j+1),"./sprites/bg_game_"+(j+1)+".jpg");
 		}
 
+        s_oSpriteLibrary.addSprite("bg_roadmap","./sprites/bg_roadmap.jpg");
+
+        s_oSpriteLibrary.addSprite("roadmap_path_0","./sprites/roadmap_path_0.png");
+        s_oSpriteLibrary.addSprite("roadmap_path_1","./sprites/roadmap_path_1.png");
+
+        s_oSpriteLibrary.addSprite("roadmap_candy_1","./sprites/roadmap_candy_1.png");
+        s_oSpriteLibrary.addSprite("roadmap_candy_2","./sprites/roadmap_candy_2.png");
+        s_oSpriteLibrary.addSprite("roadmap_candy_3","./sprites/roadmap_candy_3.png"); 
+
+        for(var j=0;j<5;j++){
+            s_oSpriteLibrary.addSprite("roadmap_decor_"+(j+1),"./sprites/roadmap_decor_"+(j+1)+".png");
+        }        
+
         RESOURCE_TO_LOAD += s_oSpriteLibrary.getNumSprites();
 
         s_oSpriteLibrary.loadSprites();
@@ -143,6 +156,11 @@ function CMain(oData){
         _oMenu = new CMenu();
         _iState = STATE_MENU;
     };
+
+    this.gotoRoadMap = function(){
+        _oRoadMap = new CRoadMap();
+        _iState = STATE_ROADMAP;        
+    }
     
     this.gotoGame = function(){
         _oGame = new CGame(_oData);   
